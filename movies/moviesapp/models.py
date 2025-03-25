@@ -7,7 +7,7 @@ class Category (models.Model):
     name = models.CharField("Категория", max_length=150)
     description = models.TextField("Описание")
     url = models.SlugField(max_length=160, unique=True)
-    def _str_(self):
+    def __str__(self):
         return self.name
     class Meta:
         verbose_name = "Категория"
@@ -19,7 +19,7 @@ class Actor(models.Model):
     age = models.PositiveSmallIntegerField("Boзpacт", default=0)
     description = models.TextField("Описание")
     image = models.ImageField("Изображение", upload_to="actors/")
-    def ___str__(self):
+    def __str__(self):
         return self.name
     def get_absolute_url(self):
         return reverse('actor_detail', kwargs={"slug": self.name})
